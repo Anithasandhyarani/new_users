@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User deatils</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DOB</th>
+            <th>GENDER</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+            <?php
+
+            $phpcon = mysqli_connect("localhost", "root", "", "sample");
+            $result=mysqli_query($phpcon,"select*from new_users");
+            while($row=mysqli_query_fetch_assoc($result)){
+            ?>
+            <tr><td><?php echo $row ['ID'];?></td>
+                <td><?php echo $row['NAME']; ?></td>
+                <td><?php echo $row['DOB']; ?></td>
+                <td><?php echo $row['GENDER']; ?></td>
+               
+            </tr>
+        <?php
+        }
+
+        ?>
+   
+
+        </tbody>
+    </table>
+</body>
+
+
+</html>
